@@ -3,15 +3,14 @@ An interactive GUI designed for exploring, analyzing, and visualizing **temporal
 
 ---
 ## Installation
-TempGraphViz is part of the Python Package Index and can be installed via ```pip install tempgraphviz```.
+TempGraphViz is part of the Python Package Index and can be installed via ```pip install tempnetviz```.
 
-To start the GUI, simply run ```python tempgraphviz.main_gui```
-If you do not have Python installed, or are not familiar with it, you can download tempgraphviz as an excucutable file [here](link).
+To start the GUI, simply run ```python -m tempgraphviz.main_gui```.
 ---
 
 ## Quickstart
 Your data should be stored in a single folder, as **.csv files**. Each .csv file representing a graph at a given time point of the analysis.
-Run ```python tempgraphviz.main_gui``` or open the excutable. Then:
+Run ```python -m tempnetviz.main_gui```. Then:
 
 1. Click **Open** to select the folder containing your `.csv` graph files.  
 2. Use the **Sub-graph selector** to choose one or multiple graph layers to visualize/analyse.  

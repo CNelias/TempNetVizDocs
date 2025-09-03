@@ -1,7 +1,7 @@
 # Graph Cut
 When working with large graphs, a direct representation of every single link can quickly become overcrowded.
 In such cases, graph pruning can help improve visibility while preserving the essential features in the data. 
-TempGraphViz offers several ways to do this, available with the **```graph cut```** button. Graph cuts are used to simplify the network by **removing weak** or **irrelevant edges**, making patterns easier to analyze and visualize.
+TempNetViz offers several ways to do this, available with the **```graph cut```** button. Graph cuts are used to simplify the network by **removing weak** or **irrelevant edges**, making patterns easier to analyze and visualize.
 Below is a list of the available cut or pruning methods available.
 ---
 

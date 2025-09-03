@@ -1,6 +1,6 @@
 # Settings Overview  
 
-The **Settings Window** lets you customize how graphs are displayed and explored in TempGraphViz.  
+The **Settings Window** lets you customize how graphs are displayed and explored in TempNetViz.  
 It is organized into **four tabs**:  
 
 - [General](#general-settings)  

@@ -1,6 +1,6 @@
 # Node and Graph Metrics
 
-To help visualize potential relevant structure or important nodes in the data, TempGraphViz provides the possibility to compute several **metrics**.
+To help visualize potential relevant structure or important nodes in the data, TempNetViz provides the possibility to compute several **metrics**.
 These metrics determine how nodes are **sized**, **colored**, and how statistics are displayed.
 
 ---
