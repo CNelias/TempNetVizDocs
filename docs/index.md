@@ -3,9 +3,11 @@ An interactive GUI designed for exploring, analyzing, and visualizing **temporal
 
 ---
 ## Installation
-TempGraphViz is part of the Python Package Index and can be installed via ```pip install tempnetviz```.
+
+TempGraphViz is part of the Python Package Index and can be installed via ```pip install tempnetviz```. 
 
 To start the GUI, simply run ```python -m tempgraphviz.main_gui```.
+
 ---
 
 ## Quickstart
@@ -30,18 +32,20 @@ You can apply aesthetic changes (e.g. edge/nodes widths, colors...) to the resul
 Once you have selected the input files to be visualized, the default view will be a 3D stack that lets you see how connections evolve as a function of time.
 You can also compute various [metrics](metrics.md) that quantify the importance of the nodes in the graph. More important nodes will be displayed larger as others.
 In this example, a colormap was also applied via the [settings](settings.md) to make the results more explicit.
-![graph structure](https://github.com/KelschLAB/TemporalGraphViz/raw/main/3D_view.png)
+
+<img src="https://github.com/CNelias/TempNetVizDocs.github.io/blob/main/3D_view.png?raw=true" alt="Graph Structure" width="50%"/>
 
 ### Metrics distribution
 Visualize how metrics evolve over time using histograms. By default, the different time steps are stacked on top of each other for easier comparison.
 In this example, deep blue corresponds to early times and deep red to the last datapoints. You can also plot each time step side by side by changing the corresponding
 option in the [settings](settings.md).
 
-![time_histogram](https://github.com/KelschLAB/TemporalGraphViz/raw/main/histo_view.png)
+<img src="https://github.com/CNelias/TempNetVizDocs.github.io/blob/main/histo_view.png?raw=true" alt="histogram" width="80%"/>
 
 ### Graph animation
-![Animation of temporal graph](graph_animation.gif)
+It is also possible to display the time evolution of the graph as an animation
 
+![Animation of temporal graph](graph_animation.gif)
 
 ### Temporal Layout
 
@@ -57,16 +61,17 @@ Let us now apply TempNetViz to real data. Here we will reproduce the results of 
 This study shows that in groups of mice living in semi-naturalistic environments, highly social and stable cliques tend to emerge (so called rich-club). The data needed to reproduce this example can be found [here](https://github.com/KelschLAB/TempNetViz/tree/main/data/nosemaze/both_cohorts_3days/G1).
 After loading the data, the corresponding multi-layer graph looks like this:
 
-![Graph Structure](G1_loaded.png)
+
+<img src="https://github.com/CNelias/TempNetVizDocs.github.io/blob/main/G1_loaded.PNG?raw=true" alt="Loaded data" width="50%"/>
 
 We first apply a graph cut to prune some of the weakest edges. If we did not do this, the graph would be fully connected, which would mask any differences in connectivity.
 For that we use the "mutual nearest neighbors" option, as we care about reciprocal edges. We choose the value of 3. We now have a graph which is a bit easier to understand:
 
-<img src="G1_cut.png" alt="Graph Structure" width="50%"/>
+<img src="https://github.com/CNelias/TempNetVizDocs.github.io/blob/main/G1_cut.PNG?raw=true" alt="Graph pruning" width="50%"/>
 
 Finally, to visualize the particularly influencial nodes, we select the "rich-club" metric, and choose a degree of 3. That means that we retain only nodes with degree >= 3.
 
-<img src="G1_rc.png" alt="Graph Structure" width="50%"/>
+<img src="https://github.com/CNelias/TempNetVizDocs.github.io/blob/main/G1_rc.PNG?raw=true" alt="Stable rich club" width="50%"/>
 
 We see that at each time step, some node come in an out of the rich-club, but some consistently stay in it over the whole experiment. In the article, the emergence of these stable rich-club was linked to the oxytocin pathways.
 Importantly, mice with impaired cortical oxytocin signaling were unable to enter such stable rich-clubs
