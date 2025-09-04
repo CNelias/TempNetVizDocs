@@ -26,10 +26,10 @@ Run ```python -m tempnetviz.main_gui```. Then:
 ### Structure visualization
 Once you have selected the input files to be visualized, the default view will be a 3D stack that lets you see how connections evolve as a function of time.
 You can also compute various [metrics](metrics.md) that quantify the importance of the nodes in the graph. More important nodes will be displayed larger as others.
-![graph structure](3D_stack.png)
+![graph structure](3D_view.png)
 
 ### Metrics distribution
-![time_histogram](hist_evolution.png)
+![time_histogram](histo_view.png)
 
 ### Graph animation
 ![Animation of temporal graph](graph_animation.gif)
