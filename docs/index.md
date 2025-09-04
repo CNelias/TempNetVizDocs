@@ -50,13 +50,27 @@ In this example, the color and thickness of node a shows its strength value.
 ![Example of temporal layout](https://github.com/KelschLAB/TemporalGraphViz/raw/main/temporal_layout.png)
 
 
-
-
-
-
 ---
 
 ## Example on real data
+Let us now apply TempNetViz to real data. Here we will reproduce the results of the article [Stable clique membership in mouse societies requires oxytocin-enabled social sensory states](https://www.biorxiv.org/content/10.1101/2025.08.26.672298v1.abstract).
+This study shows that in groups of mice living in semi-naturalistic environments, highly social and stable cliques tend to emerge (so called rich-club). The data needed to reproduce this example can be found [here](https://github.com/KelschLAB/TempNetViz/tree/main/data/nosemaze/both_cohorts_3days/G1).
+After loading the data, the corresponding multi-layer graph looks like this:
+
+![Graph Structure](G1_loaded.png)
+
+We first apply a graph cut to prune some of the weakest edges. If we did not do this, the graph would be fully connected, which would mask any differences in connectivity.
+For that we use the "mutual nearest neighbors" option, as we care about reciprocal edges. We choose the value of 3. We now have a graph which is a bit easier to understand:
+
+<img src="G1_cut.png" alt="Graph Structure" width="50%"/>
+
+Finally, to visualize the particularly influencial nodes, we select the "rich-club" metric, and choose a degree of 3. That means that we retain only nodes with degree >= 3.
+
+<img src="G1_rc.png" alt="Graph Structure" width="50%"/>
+
+We see that at each time step, some node come in an out of the rich-club, but some consistently stay in it over the whole experiment. In the article, the emergence of these stable rich-club was linked to the oxytocin pathways.
+Importantly, mice with impaired cortical oxytocin signaling were unable to enter such stable rich-clubs
+
 
 
 ---

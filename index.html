@@ -56,6 +56,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#graph-animation">Graph animation</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#temporal-layout">Temporal Layout</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#example-on-real-data">Example on real data</a>
@@ -108,25 +110,45 @@
 <p>Your data should be stored in a single folder, as <strong>.csv files</strong>. Each .csv file representing a graph at a given time point of the analysis.
 Run <code>python -m tempnetviz.main_gui</code>. Then:</p>
 <ol>
-<li>Click <strong>Open</strong> to select the folder containing your <code>.csv</code> graph files.  </li>
-<li>Use the <strong>Sub-graph selector</strong> to choose one or multiple graph layers to visualize/analyse.  </li>
-<li>Adjust the <strong>layout</strong> and <strong>metrics</strong> to explore structural properties.  </li>
-<li>Optionally apply a <strong>graph cut</strong> for better readability on large graphs.  </li>
-<li>Switch between <strong>Graph</strong>, <strong>Histogram</strong>, and <strong>Animation</strong> views for different insights.</li>
+<li>Click <strong>Open</strong> in the GUI to select the folder containing your <code>.csv</code> files.</li>
+<li>Use the <strong>Sub-graph selector</strong> to choose one or multiple layers to visualize or analyze.</li>
+<li>Adjust the <strong>metrics</strong> to explore structural properties of your data.
+   You can apply a <strong>graph cut</strong> (edge pruning) for better readability on large graphs.</li>
+<li>Switch between <strong>Graph</strong>, <strong>Histogram</strong>, and <strong>Animation</strong> views to gain different insights.</li>
 </ol>
+<p>You can apply aesthetic changes (e.g. edge/nodes widths, colors...) to the results via the <a href="settings/">Settings</a> button.</p>
 <p><img alt="image info" src="quickstart_numbered.png" /></p>
 <hr />
 <h2 id="main-functionalities">Main Functionalities</h2>
 <h3 id="structure-visualization">Structure visualization</h3>
 <p>Once you have selected the input files to be visualized, the default view will be a 3D stack that lets you see how connections evolve as a function of time.
 You can also compute various <a href="metrics/">metrics</a> that quantify the importance of the nodes in the graph. More important nodes will be displayed larger as others.
-<img alt="graph structure" src="3D_stack.png" /></p>
+In this example, a colormap was also applied via the <a href="settings/">settings</a> to make the results more explicit.
+<img alt="graph structure" src="https://github.com/KelschLAB/TemporalGraphViz/raw/main/3D_view.png" /></p>
 <h3 id="metrics-distribution">Metrics distribution</h3>
-<p><img alt="time_histogram" src="hist_evolution.png" /></p>
+<p>Visualize how metrics evolve over time using histograms. By default, the different time steps are stacked on top of each other for easier comparison.
+In this example, deep blue corresponds to early times and deep red to the last datapoints. You can also plot each time step side by side by changing the corresponding
+option in the <a href="settings/">settings</a>.</p>
+<p><img alt="time_histogram" src="https://github.com/KelschLAB/TemporalGraphViz/raw/main/histo_view.png" /></p>
 <h3 id="graph-animation">Graph animation</h3>
 <p><img alt="Animation of temporal graph" src="graph_animation.gif" /></p>
+<h3 id="temporal-layout">Temporal Layout</h3>
+<p>You can also display the results as a temporal layout. At each timestep, this representation orders the nodes on the y axis to reduce edge-overlap.
+In this example, the color and thickness of node a shows its strength value. 
+<img alt="Example of temporal layout" src="https://github.com/KelschLAB/TemporalGraphViz/raw/main/temporal_layout.png" /></p>
 <hr />
 <h2 id="example-on-real-data">Example on real data</h2>
+<p>Let us now apply TempNetViz to real data. Here we will reproduce the results of the article <a href="https://www.biorxiv.org/content/10.1101/2025.08.26.672298v1.abstract">Stable clique membership in mouse societies requires oxytocin-enabled social sensory states</a>.
+This study shows that in groups of mice living in semi-naturalistic environments, highly social and stable cliques tend to emerge (so called rich-club). The data needed to reproduce this example can be found <a href="https://github.com/KelschLAB/TempNetViz/tree/main/data/nosemaze/both_cohorts_3days/G1">here</a>.
+After loading the data, the corresponding multi-layer graph looks like this:</p>
+<p><img src="G1_loaded.png" alt="Graph Structure" width="50%"/></p>
+<p>We first apply a graph cut to prune some of the weakest edges. If we did not do this, the graph would be fully connected, which would mask any differences in connectivity.
+For that we use the "mutual nearest neighbors" option, as we care about reciprocal edges. We choose the value of 3. We now have a graph which is a bit easier to understand:</p>
+<p><img src="G1_cut.png" alt="Graph Structure" width="50%"/></p>
+<p>Finally, to visualize the particularly influencial nodes, we select the "rich-club" metric, and choose a degree of 3. That means that we retain only nodes with degree &gt;= 3.</p>
+<p><img src="G1_rc.png" alt="Graph Structure" width="50%"/></p>
+<p>We see that at each time step, some node come in an out of the rich-club, but some consistently stay in it over the whole experiment. In the article, the emergence of these stable rich-club was linked to the oxytocin pathways.
+Importantly, mice with impaired cortical oxytocin signaling were unable to enter such stable rich-clubs</p>
 <hr />
               
             </div>
@@ -176,5 +198,5 @@ You can also compute various <a href="metrics/">metrics</a> that quantify the im
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-09-03 17:06:13.155100+00:00
+Build Date UTC : 2025-09-04 08:44:23.971836+00:00
 -->
