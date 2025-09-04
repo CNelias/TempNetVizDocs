@@ -12,11 +12,14 @@ To start the GUI, simply run ```python -m tempgraphviz.main_gui```.
 Your data should be stored in a single folder, as **.csv files**. Each .csv file representing a graph at a given time point of the analysis.
 Run ```python -m tempnetviz.main_gui```. Then:
 
-1. Click **Open** to select the folder containing your `.csv` graph files.  
-2. Use the **Sub-graph selector** to choose one or multiple graph layers to visualize/analyse.  
-3. Adjust the **layout** and **metrics** to explore structural properties.  
-4. Optionally apply a **graph cut** for better readability on large graphs.  
-5. Switch between **Graph**, **Histogram**, and **Animation** views for different insights.
+1. Click **Open** in the GUI to select the folder containing your `.csv` files.
+2. Use the **Sub-graph selector** to choose one or multiple layers to visualize or analyze.
+3. Adjust the **metrics** to explore structural properties of your data.
+   You can apply a **graph cut** (edge pruning) for better readability on large graphs.
+4. Switch between **Graph**, **Histogram**, and **Animation** views to gain different insights.
+
+You can apply aesthetic changes (e.g. edge/nodes widths, colors...) to the results via the [Settings](settings.md) button.
+
 
 ![image info](quickstart_numbered.png)
 
@@ -33,6 +36,9 @@ You can also compute various [metrics](metrics.md) that quantify the importance 
 
 ### Graph animation
 ![Animation of temporal graph](graph_animation.gif)
+
+### Temporal layout 
+
 
 
 ---
